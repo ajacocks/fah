@@ -13,11 +13,17 @@ Instructions:
 
 1) Install Ansible, on your playform of choice
 2) Clone this repo:
-   $ git clone https://github.com/ajacocks/fah.git
+   
+   ```$ git clone https://github.com/ajacocks/fah.git```
+   
 3) Edit the file 'inventory' in the resulting 'fah' directory. All you need to do is to add the fully-qualified domain names of the hosts that you wish to install on, under the section '[servers]'. You can, optionally, define a control host, set a control password, add your username and passkey, and add your contributions to a team.
-4) Run the playbook. If you need an SSH password, and a sudo password, on the managed server, run it, like this:
-   $ ansible-playbook main.yml -k -K
-Otherwise, it's simply:
-   $ ansible-playbook main.yml
+4) Run the playbook.
+   1) If you need an SSH password, and a sudo password, on the managed server, run it, like this:
+   
+      ```$ ansible-playbook main.yml -k -K```
+
+   2) Otherwise, it's simply:
+
+      ```$ ansible-playbook main.yml```
 
 - Alex
