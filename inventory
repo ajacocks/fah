@@ -1,0 +1,11 @@
+[servers]
+# add the list of hosts that you want to install the Folding-at-Home client on, here:
+
+[servers:vars]
+# insert the IP address of your control host (where the FAHControl client will run) here:
+chost='127.0.0.1'
+# set the password that the control host will access the clients with here:
+cpass='password'
+# set your Folding-at-Home username and passkey, here:
+username='anonymous'
+passkey=''

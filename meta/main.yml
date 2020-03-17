@@ -1,0 +1,17 @@
+galaxy_info:
+  paybook_name: fah
+  author: Alexander Jacocks
+  description: this is a simple playbook that installs and configures the Folding-at-Home client on RHEL/CentOS hosts
+  company: Red Hat
+
+  license: GPLv3
+
+  min_ansible_version: 2.2
+
+  platforms:
+  - name: RHEL
+     versions:
+     - 8
+  - name: CentOS
+     versions:
+     - 8

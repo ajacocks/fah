@@ -1,0 +1,81 @@
+- hosts: servers
+  become: yes
+
+  tasks:
+
+  - name: install required packages
+    package:
+      name:
+        - compat-openssl10
+        - freeglut
+        - libcanberra-gtk2 
+        - make
+        - mesa-libGLU
+        - pygtk2
+        - python2
+      state: present
+
+  - name: Gather the rpm package facts
+    package_facts:
+      manager: auto
+
+  - name: download packages for the FaH client
+    get_url:
+      url: "{{ item }}"
+      dest: /tmp
+    with_items: "{{ pkgs }}"
+    when: "'fahclient' not in ansible_facts.packages"
+
+  - name: install FaH packages
+    command: "rpm -ivh --nodeps /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
+    with_items: "{{ pkgs }}"
+    when: "'fahclient' not in ansible_facts.packages"
+
+  - name: Stop FaH client
+#    command: "/etc/init.d/FAHClient stop"
+    service:
+      name: FAHClient
+      state: stopped
+
+  - name: Install FaH config
+    template:
+      src: sample-config.xml.j2
+      dest: /etc/fahclient/config.xml
+
+  - name: Check to see if the init script exists
+    stat:
+      path: /etc/init.d/FAHClient
+    register: initscript
+
+  - name: Copy default init script to docs directory
+    copy:
+      remote_src: yes
+      src: /etc/init.d/FAHClient
+      dest: /usr/share/doc/fahclient/FAHClient.init
+    when: initscript.stat.exists
+
+  - name: Remove init script
+    file:
+      path: /etc/init.d/FAHClient
+      state: absent
+
+  - name: Install FaH systemd service file
+    copy:
+      src: FAHClient.service
+      dest:  /etc/systemd/system/FAHClient.service
+
+  - name: open firewalld port
+    firewalld:
+      immediate: yes
+      port: 36330/tcp
+      permanent: yes
+      state: enabled
+
+  - name: Start and enable FaH client
+    service:
+      name: FAHClient
+      daemon_reload: yes
+      enabled: yes
+      state: started
+
+...

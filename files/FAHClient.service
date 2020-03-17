@@ -1,0 +1,15 @@
+[Unit]
+Description=Folding@Home V7 Client
+Documentation=https://folding.stanford.edu/home/the-software/
+
+[Service]
+Type=simple
+WorkingDirectory=/var/lib/fahclient
+PIDFile=/var/run/fahclient.pid
+ExecStart=/usr/bin/FAHClient /etc/fahclient/config.xml --run-as fahclient --pid-file=/var/run/fahclient.pid --daemon -v
+ExecReload=/bin/kill -SIGUSR1 $MAINPID
+ExecStop=/bin/kill $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
