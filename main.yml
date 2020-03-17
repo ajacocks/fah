@@ -3,7 +3,14 @@
 
   tasks:
 
-  - name: install required packages
+#  - name: install required packages (DEB)
+#    package:
+#      name:
+#        - compat-openssl10
+#      state: present
+#    when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
+
+  - name: install required packages (RPM)
     package:
       name:
         - compat-openssl10
@@ -14,6 +21,8 @@
         - pygtk2
         - python2
       state: present
+    when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
+
 
   - name: Gather package facts
     package_facts:
@@ -26,10 +35,19 @@
     with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
     when: "'fahclient' not in ansible_facts.packages"
 
-  - name: install FaH packages
+  - name: install FaH packages (RPM)
     command: "rpm -ivh --nodeps /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
     with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-    when: "'fahclient' not in ansible_facts.packages"
+    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
+
+  - name: install FaH packages (DEB)
+    apt:
+#      deb: "{{ item }}"
+      deb: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
+#    package:
+#      name: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
+    with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
+    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
 
   - name: Stop FaH client
     service:
@@ -68,12 +86,20 @@
       src: FAHClient.service
       dest:  /etc/systemd/system/FAHClient.service
 
-  - name: open firewalld port
+  - name: Open firewalld port
     firewalld:
       immediate: yes
-      port: 36330/tcp
+      port: '36330/tcp'
       permanent: yes
       state: enabled
+    when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
+
+  - name: Open UFW port
+    ufw:
+      rule: allow
+      port: '36330'
+      proto: tcp
+    when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
 
   - name: Start and enable FaH client
     service:
