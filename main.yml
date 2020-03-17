@@ -15,7 +15,7 @@
         - python2
       state: present
 
-  - name: Gather the rpm package facts
+  - name: Gather package facts
     package_facts:
       manager: auto
 
@@ -23,19 +23,23 @@
     get_url:
       url: "{{ item }}"
       dest: /tmp
-    with_items: "{{ pkgs }}"
+    with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
     when: "'fahclient' not in ansible_facts.packages"
 
   - name: install FaH packages
     command: "rpm -ivh --nodeps /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
-    with_items: "{{ pkgs }}"
+    with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
     when: "'fahclient' not in ansible_facts.packages"
 
   - name: Stop FaH client
-#    command: "/etc/init.d/FAHClient stop"
     service:
       name: FAHClient
       state: stopped
+
+  - name: Wait for termination of all FaH client processes
+    wait_for:
+      path: /var/run/fahclient.pid
+      state: absent
 
   - name: Install FaH config
     template:
