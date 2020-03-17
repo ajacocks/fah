@@ -6,6 +6,7 @@
 chost='127.0.0.1'
 # set the password that the control host will access the clients with here:
 cpass='password'
-# set your Folding-at-Home username and passkey, here:
+# set your Folding-at-Home username, passkey, and team, here:
 username='anonymous'
 passkey=''
+team='0'
