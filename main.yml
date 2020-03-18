@@ -23,6 +23,19 @@
       state: present
     when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
 
+# Amazon linux doesn't have compat-openssl10 or something similar
+# It doesn't appear that the fahclient actually needs it
+  - name: install required packages (RPM)
+    package:
+      name:
+        - freeglut
+        - libcanberra-gtk2
+        - make
+        - mesa-libGLU
+        - pygtk2
+        - python2
+      state: present
+    when: "ansible_distribution == 'Amazon'"
 
   - name: Gather package facts
     package_facts:
@@ -38,7 +51,7 @@
   - name: install FaH packages (RPM)
     command: "rpm -ivh --nodeps /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
     with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
+    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
 
   - name: install FaH packages (DEB)
     apt:
