@@ -49,7 +49,7 @@
     when: "'fahclient' not in ansible_facts.packages"
 
   - name: install FaH packages (RPM)
-    command: "rpm -ivh --nodeps /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
+    command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
     with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
     when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
 
@@ -62,10 +62,41 @@
     with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
     when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
 
+  - name: Ensure group "somegroup" exists
+    group:
+      name: fahclient
+      state: present
+      system: yes
+    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
+
+  - name: Create fahclient user
+    user:
+      name: fahclient
+      state: present
+      group: fahclient
+      comment: "Folding@home Client"
+      shell: /sbin/nologin
+      expires: -1
+      system: yes
+    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
+
+  - name: Create fahclient directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: fahclient
+      group: fahclient
+      mode: 0775
+    with_items:
+      - /var/lib/fahclient
+      - /etc/fahclient
+    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
+
   - name: Stop FaH client
     service:
       name: FAHClient
       state: stopped
+    when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
 
   - name: Wait for termination of all FaH client processes
     wait_for:
