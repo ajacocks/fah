@@ -11,6 +11,15 @@ username='anonymous'
 passkey=''
 team='0'
 
+# Allow FAH to use the full power of the host
+power=full
+# Enable GPU Support
+gpu=false
+# Enable SMP Support
+smp=true
+# Allow Workloads for any cause
+cause=ANY
+
 # Variables below can be used with AWS instances
 #ansible_ssh_private_key_file=
 #ansible_connection=ssh
