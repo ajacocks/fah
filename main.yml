@@ -156,4 +156,21 @@
       enabled: true
       state: started
 
+  - name: Install FAH Cycle Script
+    template:
+      src: fahclient_cycle.sh.j2
+      dest: /usr/local/bin/fahclient_cycle.sh
+      owner: fahclient
+      group: root
+      mode: 0774
+
+  - name: Creates an entry to pause and unpause FAHClient if no WUs
+    cron:
+      name: "Pause and unpause if no WUs"
+      special_time: hourly
+      state: present
+      job: "/usr/local/bin/fahclient_cycle.sh"
+      user: fahclient
+    when: "enable_cron == True"
+
 ...
