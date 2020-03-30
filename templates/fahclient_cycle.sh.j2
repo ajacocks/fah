@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Script to pause and then unpause FAHClient
+# This is often necessary to get more WU when the servers
+# have not responded in awhile
+
+# Check the last entry in the log. If unable to get WUs, pause and then unpause
+if tail -1 /var/lib/fahclient/log.txt | grep 'Exception: Could not get an assignment'
+then
+  FAHClient --send-pause
+  sleep 5
+  FAHClient --send-unpause
+fi
+
+exit 0
