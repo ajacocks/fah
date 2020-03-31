@@ -11,7 +11,7 @@ Please fork, send PRs, and open issues, as needed.
 
 Instructions:
 
-1) Install Ansible, on your playform of choice
+1) Install Ansible, on your platform of choice
 2) Clone this repo:
    
    ```$ git clone https://github.com/ajacocks/fah.git```
