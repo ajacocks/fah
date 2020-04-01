@@ -1,0 +1,14 @@
+---
+- name: install NVIDIA repo for container runtime hook
+  shell: dnf config-manager --add-repo https://nvidia.github.io/nvidia-container-runtime/centos7/x86_64/nvidia-container-runtime.repo
+
+- name: install nvidia-container-runtime-hook
+  yum:
+    name: nvidia-container-runtime-hook
+    state: latest
+
+- name: install nvidia-container-runtime
+  yum: 
+    name: nvidia-container-runtime
+    state: latest
+
