@@ -4,13 +4,43 @@
 
   tasks:
 
-  - name: Populate service facts
-    service_facts:
-
-  - name: install required packages (RPM)
-    package:
-      name:
-        - docker
+  - name: Ensure group "fahclient" exists
+    group:
+      name: fahclient
       state: present
-    when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
+      system: true
+    when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
 
+  - name: Ensure user "fahclient" exists
+    user:
+      name: fahclient
+      state: present
+      group: fahclient
+      comment: "Folding@home Client"
+      shell: /bin/bash
+      expires: -1
+      system: false
+    when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
+
+  - name: Create fahclient directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: fahclient
+      group: fahclient
+      mode: 0775
+    with_items:
+      - /var/lib/fahclient
+      - /etc/fahclient
+    when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
+
+  - name: Install FaH config
+    template:
+      src: sample-config.xml.j2
+      dest: /etc/fahclient/config.xml
+
+  - name: Install Docker Version
+    include_role:
+      name: docker
+    tags:
+      - docker

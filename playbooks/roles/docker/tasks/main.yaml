@@ -1,0 +1,10 @@
+---
+# Tasks for configuring Supervisord.
+- include: dependencies.yaml
+
+- include_tasks: cpu_only.yaml
+  when: "cuda is False"
+
+- include_tasks: gpu.yaml
+  when: "cuda is True"
+

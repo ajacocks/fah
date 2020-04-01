@@ -1,0 +1,10 @@
+---
+
+# There appears to be an issue with switching to the fahclient user
+# to run podman rootless. Using sudo to change to another user, which is what
+# ansible is doing, doesn't work with podman
+- name: Pull the fahclient container image
+  podman_image:
+    name: quay.io/fah/fah-client-cuda
+    tag: v7.5.1
+
