@@ -8,3 +8,9 @@
     name: quay.io/fah/fah-client
     tag: v7.5.1
 
+  - name: Start fahclient container
+    shell: | 
+      podman run -d -p '7396:7396' -p '36330:36330' -v /etc/fahclient:/etc/fahclient:Z \
+                 -v /var/lib/fahclient:/var/lib/fahclient:Z --cpus={{ cpus }} \
+                 --name fahclient --userns=keep-id quay.io/fah/fah-client:v7.5.1
+
