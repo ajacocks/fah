@@ -15,12 +15,18 @@ team='0'
 power=full
 # Enable GPU Support
 gpu=false
+# Specify GPU type. Supported values are nvidia or radeon
+# This variable has no effect if gpu is set to false
+gpu_type=nvidia
 # Enable SMP Support
 smp=true
 # Allow Workloads for any cause
 cause=ANY
 # Enable cronjob to pause/unpause FAHClient
 enable_cron=True
+
+# Set to true to deploy the fahclient as a container
+containerized=True
 
 # Variables below can be used with AWS instances
 #ansible_ssh_private_key_file=

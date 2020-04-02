@@ -44,3 +44,6 @@
       name: podman
     tags:
       - podman
+    when: containerized
+
+
