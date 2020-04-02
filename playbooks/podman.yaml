@@ -64,6 +64,8 @@
       - radeon
     when: gpu and 'gpu_type == radeon'
 
+  #TODO: Do we need OCI hooks or something else to enable radeon containers like nvidia?
+
 
   # If containerized install deps and start container
   - name: Install Podman Version
