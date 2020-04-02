@@ -3,8 +3,8 @@
 - include: dependencies.yaml
 
 - include_tasks: cpu_only.yaml
-  when: "cuda is False"
+  when: not cuda |bool
 
 - include_tasks: gpu.yaml
-  when: "cuda is True"
+  when: cuda | bool
 
