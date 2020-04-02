@@ -17,6 +17,8 @@ Instructions:
    ```$ git clone https://github.com/ajacocks/fah.git```
    
 3) Edit the file 'inventory' in the resulting 'fah' directory. All you need to do is to add the fully-qualified domain names of the hosts that you wish to install on, under the section '[servers]'. You can, optionally, define a control host, set a control password, add your username and passkey, and add your contributions to a team.
+Be sure to set ```gpu=```  to your liking.
+
 4) Run the playbook.
    1) If you need an SSH password, and a sudo password, on the managed server, run it, like this:
    
@@ -25,5 +27,6 @@ Instructions:
    2) Otherwise, it's simply:
 
       ```$ ansible-playbook main.yml```
+5) Once the playbook completed successfully, point your browser at [http://localhost:7396/](http://localhost:7396/)
 
 - Alex
