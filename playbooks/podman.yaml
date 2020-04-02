@@ -39,6 +39,14 @@
       src: sample-config.xml.j2
       dest: /etc/fahclient/config.xml
 
+  - name: Disable Nouveau Driver
+    include_role:
+      name: nouveau-blacklist
+    tags:
+      - gpu
+      - nvidia
+    when: gpu and 'gpu_type == nvidia'
+
   - name: Install Nvidia Drivers
     include_role:
       name: nvidia-driver-install
