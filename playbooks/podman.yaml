@@ -39,11 +39,39 @@
       src: sample-config.xml.j2
       dest: /etc/fahclient/config.xml
 
+  - name: Install Nvidia Drivers
+    include_role:
+      name: nvidia-driver-install
+    tags:
+      - gpu
+      - nvidia
+    when: gpu and 'gpu_type == nvidia'
+
+  - name: Install Nvidia OCI Hooks
+    include_role:
+      name: nvidia-container-runtime-hook
+    tags:
+      - gpu
+      - nvidia
+      - container
+    when: gpu and containerized and 'gpu_type == nvidia'
+
+  - name: Install Radeon Drivers
+    include_role:
+      name: radeon-driver-install
+    tags:
+      - gpu
+      - radeon
+    when: gpu and 'gpu_type == radeon'
+
+
+  # If containerized install deps and start container
   - name: Install Podman Version
     include_role:
       name: podman
     tags:
       - podman
+      - container
     when: containerized
 
 
