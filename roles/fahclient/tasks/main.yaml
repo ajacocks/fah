@@ -27,11 +27,16 @@
     state: directory
     owner: fahclient
     group: fahclient
-    mode: 0775
+    mode: 0777
   with_items:
     - /var/lib/fahclient
     - /etc/fahclient
   when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
+
+- name: Install FaH config
+  template:
+    src: sample-config.xml.j2
+    dest: /etc/fahclient/config.xml
 
 - import_tasks: service.yaml
   when: local_service | bool
