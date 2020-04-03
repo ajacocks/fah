@@ -1,0 +1,48 @@
+---
+
+- name: Stop FaH client
+  service:
+    name: FAHClient
+    state: stopped
+  when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
+
+- name: Wait for termination of all FaH client processes
+  wait_for:
+    path: /var/run/fahclient.pid
+    state: absent
+
+- name: Install FaH config
+  template:
+    src: sample-config.xml.j2
+    dest: /etc/fahclient/config.xml
+
+- name: Check to see if the init script exists
+  stat:
+    path: /etc/init.d/FAHClient
+  register: initscript
+
+- name: Copy default init script to docs directory
+  copy:
+    remote_src: true
+    src: /etc/init.d/FAHClient
+    dest: /usr/share/doc/fahclient/FAHClient.init
+  when: initscript.stat.exists
+
+- name: Remove init script
+  file:
+    path: /etc/init.d/FAHClient
+    state: absent
+
+- name: Install FaH systemd service file
+  copy:
+    src: FAHClient.service
+    dest: /etc/systemd/system/FAHClient.service
+
+- name: Start and enable FaH client
+  service:
+    name: FAHClient
+    daemon_reload: true
+    enabled: true
+    state: started
+
+...
