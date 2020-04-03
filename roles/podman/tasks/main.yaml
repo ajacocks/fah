@@ -8,4 +8,4 @@
 - include_tasks: gpu.yaml
   when: gpu |bool
 
-- include: systemd.yaml
+#- include: systemd.yaml

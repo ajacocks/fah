@@ -4,7 +4,26 @@
 # to run podman rootless. Using sudo to change to another user, which is what
 # ansible is doing, doesn't work with podman
 - name: Pull the fahclient container image
-  podman_image:
+  docker_image:
     name: quay.io/fah/fah-client
     tag: v7.5.1
+    state: present
+    source: pull
+
+- name: Run the fahclient docker image
+  docker_container:
+    name: fahclient
+    image: quay.io/fah/fah-client:v7.5.1
+    detach: yes
+    volumes:
+      - /etc/fahclient:/etc/fahclient:Z
+      - /var/lib/fahclient:/var/lib/fahclient:Z
+    ports:
+      - 7396:7396
+      - 36330:36330
+# TODO: Add cap drop for security
+#    cap_drop:
+#      - all
+#    capabilities:
+#      - sys_time
 

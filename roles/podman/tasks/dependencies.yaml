@@ -12,5 +12,5 @@
     name:
       - podman
     state: present
-  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
 

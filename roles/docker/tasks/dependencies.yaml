@@ -1,11 +1,11 @@
 ---
 
-- name: Populate service facts
-  service_facts:
-
-- name: Gather package facts
-  package_facts:
-    manager: auto
+- name: Ensure python3 is installed
+  package:
+    name:
+      - python3
+      - python3-pip
+    state: present
 
 # TODO: Need to find ansible module that covers adding a repo
 - name: Enable the Docker CE Repository
@@ -21,13 +21,14 @@
       - docker-ce
     state: present
 
-- name: Download and install docker-compose
-  get_url:
-    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
-    dest: /usr/local/bin/docker-compose
-    owner: root
-    group: root
-    mode: 0755
+# Docker Compose is not needed but can be added
+#- name: Download and install docker-compose
+#  get_url:
+#    url: https://github.com/docker/compose/releases/download/{{ docker_compose }}/docker-compose-Linux-x86_64
+#    dest: /usr/local/bin/docker-compose
+#    owner: root
+#    group: root
+#    mode: 0755
 
 # Set ip forwarding on in /proc and in the sysctl file and reload if necessary
 - sysctl:

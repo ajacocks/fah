@@ -3,9 +3,13 @@
 - import_tasks: dependencies.yaml
 
 # TODO: How to run cpu or gpu tasks based on single tag present or not??
-#- import_tasks: cpu_only.yaml  
+- import_tasks: cpu_only.yaml
+  when:
+    (not gpu | bool)
 
-#- import_tasks: gpu.yaml
-#  tags: gpu
+- import_tasks: gpu.yaml
+  when:
+    (gpu | bool)
+
   
 
