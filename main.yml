@@ -6,10 +6,12 @@
 
   - name: Populate service facts
     service_facts:
+    tags: always
 
   # Only installs the prep stuff if using containers
   - import_role:
       name: fahclient
+    tags: always
 
   - name: Install Docker Version
     include_role:

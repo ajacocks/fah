@@ -52,5 +52,4 @@
 #      name: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
   when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
-
-  ...
+  
