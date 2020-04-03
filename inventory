@@ -26,15 +26,15 @@ cause=ANY
 
 #####################################################
 
-# Specify GPU type. Supported values are nvidia or radeon
-# This variable has no effect if gpu is set to false
+# True or False
+local_service=True
+# Nvidia or Radeon
 gpu_type=nvidia
+# True or False
+containerized=False
 
 # Enable cronjob to pause/unpause FAHClient
 enable_cron=True
-
-# Set to true to deploy the fahclient as a container
-containerized=True
 
 # Variables below can be used with AWS instances
 #ansible_ssh_private_key_file=

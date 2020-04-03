@@ -1,10 +1,11 @@
 ---
 # Tasks for configuring Supervisord.
-- include: dependencies.yaml
+- import_tasks: dependencies.yaml
 
-- include_tasks: cpu_only.yaml
-  when: not cuda |bool
+# TODO: How to run cpu or gpu tasks based on single tag present or not??
+#- import_tasks: cpu_only.yaml  
 
-- include_tasks: gpu.yaml
-  when: cuda | bool
+#- import_tasks: gpu.yaml
+#  tags: gpu
+  
 

@@ -8,54 +8,49 @@
     service_facts:
     tags: always
 
-  # Only installs the prep stuff if using containers
-  - import_role:
+  - include_role:
       name: fahclient
-    tags: always
-
-  - name: Install Docker Version
-    include_role:
-      name: docker
-    tags:
-      - docker
-
+    
   - name: Disable Nouveau Driver
     include_role:
       name: nouveau-blacklist
-    tags:
-      - gpu
-      - nvidia
+    when:
+      (gpu | bool) and
+      (gpu_type == 'nvidia')
 
   - name: Install Nvidia Drivers
     include_role:
       name: nvidia-driver-install
-    tags:
-      - gpu
-      - nvidia
+    when:
+      (gpu | bool) and
+      (gpu_type == 'nvidia')
 
+  #TODO: Do we need OCI hooks or something else to enable radeon containers like nvidia?
   - name: Install Nvidia OCI Hooks
     include_role:
       name: nvidia-container-runtime-hook
-    tags:
-      - gpu
-      - nvidia
-      - container
+    when:
+      (gpu | bool) and
+      (gpu_type == 'nvidia') and
+      (containerized | bool)
 
   - name: Install Radeon Drivers
     include_role:
       name: radeon-driver-install
-    tags:
-      - gpu
-      - radeon
+    when:
+      (gpu | bool) and
+      (gpu_type == 'radeon')
 
-  #TODO: Do we need OCI hooks or something else to enable radeon containers like nvidia?
+  - name: Install fahclient as a docker image
+    include_role:
+      name: docker
+    when:
+      containerized | bool
 
-  # If containerized install deps and start container
   - name: Install Podman Version
     include_role:
       name: podman
-    tags:
-      - podman
-      - container
+    when:
+      (containerized | bool)
 
 ...

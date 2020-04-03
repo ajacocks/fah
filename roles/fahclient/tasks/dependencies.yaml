@@ -1,5 +1,4 @@
 ---
-
 - name: install required packages (RPM)
   package:
     name:
@@ -11,8 +10,8 @@
       - pygtk2
       - python2
     state: present
-  tags: local-service
-  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'"
+  when:
+    (ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora')
 
 # Amazon linux doesn't have compat-openssl10.
 # Library comes with Amazon Linux openssl package
@@ -26,7 +25,8 @@
       - pygtk2
       - python2
     state: present
-  when: "ansible_distribution == 'Amazon'"
+  when: 
+    (ansible_distribution == 'Amazon')
 
 - name: Gather package facts
   package_facts:
@@ -37,19 +37,21 @@
     url: "{{ item }}"
     dest: /tmp
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-  when: "'fahclient' not in ansible_facts.packages"
+  when: 
+    ("'fahclient' not in ansible_facts.packages") and
 
 - name: install FaH packages (RPM)
   command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-  when: "'fahclient' not in ansible_facts.packages and ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon' )"
+  when: 
+    ("'fahclient' not in ansible_facts.packages") and
+    ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon' )
 
 - name: install FaH packages (DEB)
   apt:
-#      deb: "{{ item }}"
     deb: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
-#    package:
-#      name: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-  when: "'fahclient' not in ansible_facts.packages and ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
+  when: 
+    ("'fahclient' not in ansible_facts.packages") and
+    (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
   

@@ -5,23 +5,25 @@
 # you get the latest kernel-devel but the old kernel and the Nvidia
 # drivers don't install
 - name: install kernel-devel
-  yum: name=kernel-devel-{{ ansible_kernel }} state=present
+  yum: 
+    name: kernel-devel-{{ ansible_kernel }}
+    state: present
 
 - name: install EPEL
   yum: 
-    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_version }}.noarch.rpm
     state: present
-
+    when: "ansible_distribution == 'RedHat'"
 
 - name: install NVIDIA repo
   yum:
-    name: https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-repo-rhel8-10.2.89-1.x86_64.rpm
+    name: https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-repo-rhel{{ ansible_distribution_version }}-10.2.89-1.x86_64.rpm
     state: present
-#  when: "ansible_distribution == 'RedHat' and ansible_distribution_version == '8'"
+  when: "ansible_distribution == 'RedHat'"
 
 - name: install NVIDIA drivers
   yum:  
-    name: cuda-10.1.243
+    name: cuda
     state: present
 
 #- name: load NVIDIA and unified memory kernel modules

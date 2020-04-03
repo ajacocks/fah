@@ -2,16 +2,9 @@
 
 - name: Update grub to disable the nouveau driver
   shell: grubby --update-kernel=ALL --args="rd.driver.blacklist=nouveau nouveau.modeset=0"
-  tags:
-      - gpu
-      - nvidia
-
+  
 - name: copy nouveau blacklist config up to fast_nodes
   copy:
     src: nouveau.conf
     dest: /etc/modprobe.d/nouveau.conf
     mode: 0644
-  tags:
-      - gpu
-      - nvidia
-

@@ -1,7 +1,7 @@
 ---
 
 - import_tasks: dependencies.yaml
-  tags: local-service
+  when: local_service | bool
 
 - name: Ensure group "fahclient" exists
   group:
@@ -34,11 +34,11 @@
   when: "ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon'"
 
 - import_tasks: service.yaml
-  tags: local-service
+  when: local_service | bool
 
 - import_tasks: firewall.yaml
-  tags: local-service
+  when: local_service | bool
 
 - import_tasks: cron.yaml
-  tags: local-service
+  when: local_service | bool
 
