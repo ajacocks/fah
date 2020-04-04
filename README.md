@@ -27,3 +27,11 @@ Instructions:
       ```$ ansible-playbook main.yml```
 
 - Alex
+
+## GPU notes
+
+1) until you see your GPU in `clinfo` FAHClient has no chance to use it with OpenCL.
+
+2) if `clinfo` shows nothing, then try again after installing `mesa-libOpenCL`.
+
+3) check the most recent log file in `/var/lib/fahclient/logs/`, you want to see an `OpenCL Device` entry in the latest `…*** System ***…` block.
