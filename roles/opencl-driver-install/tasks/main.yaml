@@ -14,8 +14,20 @@
     state: present
   when: "ansible_distribution == 'RedHat'"
 
-- name: install OpenCL drivers
+- name: install RPMFusion
   package:
-    name: opencl
+    name: https://download1.rpmfusion.org/free/el/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
     state: present
-  when: "ansible_distribution == 'RedHat'"
+  when: "ansible_distribution == 'RedHat'"  
+
+- name: install RPMFusion
+  package:
+    name: https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm
+    state: present
+  when: "ansible_distribution == 'RedHat'"    
+
+#- name: install OpenCL drivers
+#  package:
+#    name: opencl
+#    state: present
+#  when: "ansible_distribution == 'RedHat'"
