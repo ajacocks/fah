@@ -8,15 +8,15 @@
     include_role:
       name: nouveau-blacklist
     when:
-      (gpu | bool) and
-      (gpu_type == 'nvidia')
+      (gpu | bool)
 
   - name: Install Nvidia Drivers
     include_role:
       name: nvidia-driver-install
     when:
       (gpu | bool) and
-      (gpu_type == 'nvidia')
+      (gpu_type == 'nvidia') and
+      (gpu_driver == 'cuda')
 
   #TODO: Do we need OCI hooks or something else to enable radeon containers like nvidia?
   #TODO: What is needed if using docker instead of podman
@@ -26,7 +26,16 @@
     when:
       (gpu | bool) and
       (gpu_type == 'nvidia') and
+      (gpu_driver == 'cuda') and
       (podman | bool)
+
+  - name: Install OpenCL Drivers
+    include_role:
+      name: opencl-driver-install
+    when:
+      (gpu | bool) and
+      (gpu_type == 'nvidia') and
+      (gpu_driver == 'OpenCL')
 
   - name: Install Radeon Drivers
     include_role:
