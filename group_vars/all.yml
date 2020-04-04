@@ -26,5 +26,21 @@ fah_pkgs:
 
 cpus: 2
 
+# True or False
+local_service: False
+# Nvidia or Radeon
+gpu_type: nvidia
+# cuda or opencl
+gpu_driver: opencl
+# Only one of docker or podman should be set to true
+docker: False
+podman: True
+
+# If using docker set the compose version
+docker_compose: 1.25.4
+
+# Enable cronjob to pause/unpause FAHClient
+enable_cron: True
+
 
 ...

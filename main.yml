@@ -32,7 +32,16 @@
     when:
       (gpu | bool) and
       (has_nvidia_gpu.stdout == "true") and
+      (gpu_driver == 'cuda') and
       (podman | bool)
+
+  - name: Install OpenCL Drivers
+    include_role:
+      name: opencl-driver-install
+    when:
+      (gpu | bool) and
+      (gpu_type == 'nvidia') and
+      (gpu_driver == 'opencl')
 
   - name: Install Radeon Drivers
     include_role:
