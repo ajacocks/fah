@@ -26,20 +26,6 @@ cause=ANY
 
 #####################################################
 
-# True or False
-local_service=True
-# Nvidia or Radeon
-gpu_type=nvidia
-# Only one of docker or podman should be set to true
-docker=True
-podman=False
-
-# If using docker set the compose version
-docker_compose=1.25.4
-
-# Enable cronjob to pause/unpause FAHClient
-enable_cron=True
-
 # Variables below can be used with AWS instances
 #ansible_ssh_private_key_file=
 #ansible_connection=ssh
