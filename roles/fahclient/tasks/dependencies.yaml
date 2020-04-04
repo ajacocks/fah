@@ -11,7 +11,7 @@
       - python2
     state: present
   when:
-    (ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora')
+    (ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS')
 
 # Amazon linux doesn't have compat-openssl10.
 # Library comes with Amazon Linux openssl package
@@ -39,13 +39,14 @@
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
   when: 
     ("'fahclient' not in ansible_facts.packages") and
+    ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Amazon' )
 
 - name: install FaH packages (RPM)
   command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
   when: 
     ("'fahclient' not in ansible_facts.packages") and
-    ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Amazon' )
+    ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Amazon' )
 
 - name: install FaH packages (DEB)
   apt:

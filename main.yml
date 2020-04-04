@@ -4,19 +4,25 @@
 
   tasks:
 
+# This way of detecting GPUs is portable and doesn't require root
+  - name: check for Nvidia GPU
+    shell:
+      cmd: awk 'BEGIN{result="false"} $0 ~ /0x10de/ {gsub(/\/vendor/, "/class", FILENAME); getline pciclass < FILENAME; if(pciclass ~ /^0x03/) result="true"}  END{print result}'  /sys/bus/pci/devices/*/vendor
+    register: has_nvidia_gpu
+
   - name: Disable Nouveau Driver
     include_role:
       name: nouveau-blacklist
     when:
       (gpu | bool) and
-      (gpu_type == 'nvidia')
+      (has_nvidia_gpu.stdout == "true")
 
   - name: Install Nvidia Drivers
     include_role:
       name: nvidia-driver-install
     when:
       (gpu | bool) and
-      (gpu_type == 'nvidia')
+      (has_nvidia_gpu.stdout == "true")
 
   #TODO: Do we need OCI hooks or something else to enable radeon containers like nvidia?
   #TODO: What is needed if using docker instead of podman
@@ -25,7 +31,7 @@
       name: nvidia-container-runtime-hook
     when:
       (gpu | bool) and
-      (gpu_type == 'nvidia') and
+      (has_nvidia_gpu.stdout == "true") and
       (podman | bool)
 
   - name: Install Radeon Drivers

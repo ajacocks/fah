@@ -6,7 +6,7 @@
     port: '36330/tcp'
     permanent: true
     state: enabled
-  when: "(ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora') and 'firewalld' in services"
+  when: "(ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS') and 'firewalld' in services"
 
 - name: Open UFW port
   ufw:
