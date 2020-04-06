@@ -1,18 +1,20 @@
 ---
 
+- name: Populate service facts
+  service_facts:
+
 - name: Open firewalld port
   firewalld:
     immediate: true
     port: '36330/tcp'
     permanent: true
     state: enabled
-  when: "(ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS') and 'firewalld' in services"
+  when: "'firewalld' in services"
 
 - name: Open UFW port
   ufw:
     rule: allow
     port: '36330'
     proto: tcp
-  when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
+  when: "'ufw' in services"
 
-  
