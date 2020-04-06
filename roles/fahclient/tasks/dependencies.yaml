@@ -1,8 +1,16 @@
 ---
+
+- name: Make sure python-apt installed on Debian based hosts
+  apt:
+    name: python-apt
+    state: present
+  when:
+    (ansible_distribution == 'Debian') or
+    (ansible_distribution == 'Ubuntu')
+
 - name: install required packages (RPM)
   package:
     name:
-      - compat-openssl10
       - freeglut
       - libcanberra-gtk2
       - make
@@ -11,27 +19,46 @@
       - python2
     state: present
   when:
-    (ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS')
+    (ansible_distribution == 'RedHat') or
+    (ansible_distribution == 'Fedora') or
+    (ansible_distribution == 'CentOS')
 
-# Amazon linux doesn't have compat-openssl10.
-# Library comes with Amazon Linux openssl package
 - name: install required packages (RPM)
   package:
     name:
       - freeglut
-      - libcanberra-gtk2
       - make
       - mesa-libGLU
-      - pygtk2
       - python2
     state: present
-  when: 
+  when:
     (ansible_distribution == 'Amazon')
+
+# Package only needed in RHEL 8
+- name: install required packages (RPM)
+  package:
+    name: 
+      - compat-openssl10
+  when:
+    (ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS') and
+    (ansible_distribution_major_version == '8')
+
+# Packages only needed in Amazon Linux 2
+- name: install required packages (RPM)
+  package:
+    name:
+      - libcanberra-gtk2
+      - pygtk2
+  when:
+    (ansible_distribution == 'Amazon') and
+    (ansible_distribution_major_version == '2')
 
 - name: Gather package facts
   package_facts:
     manager: auto
 
+# TODO: This will not work on RHEL 6 because RHEL 6 cannot validate
+# F@H's SSL Certificates
 - name: download packages for the FaH client
   get_url:
     url: "{{ item }}"

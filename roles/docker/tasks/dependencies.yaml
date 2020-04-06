@@ -7,13 +7,28 @@
       - python3-pip
     state: present
 
-# TODO: Need to find ansible module that covers adding a repo
-- name: Enable the Docker CE Repository
-  shell: dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+- name: Enable Docker CE Repository
+  get_url:
+    url: "{{ item }}"
+    dest: /etc/yum.repos.d/docker-ce.repo
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ docker_ce_repo[ ansible_distribution ] }}"
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'"
+
+- name: Install the Docker CE Repo GPG Key
+  rpm_key:
+    state: present
+    key: "{{ item }}"
+  with_items: "{{ docker_ce_repo_key[ ansible_distribution ] }}"
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'"
 
 # TODO: Should be changed to lineinfile module instead of using sed
+# Only run this on RHEL 8
 - name: Enable the Docker CE Repository
   shell: sed -i '/^gpgkey=https:\/\/download.docker.com\/linux\/centos\/gpg/a module_hotfixes=True' /etc/yum.repos.d/docker-ce.repo
+  when: "ansible_distribution == 'RedHat' and ansible_distribution_major_version == 8"
 
 - name: Install Docker-CE
   package:

@@ -13,13 +13,13 @@
   package: 
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
     state: present
-  when: "ansible_distribution == 'RedHat'"
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS'"
 
 - name: install NVIDIA repo
   package:
     name: https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-repo-rhel{{ ansible_distribution_major_version }}-10.2.89-1.x86_64.rpm
     state: present
-  when: "ansible_distribution == 'RedHat'"
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS'"
 
 - name: install NVIDIA drivers
   package:  

@@ -24,17 +24,48 @@ fah_pkgs:
   Amazon:
     - 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm'
 
+docker_ce_repo:
+  Debian:
+    - ''
+  Fedora:
+    - 'https://download.docker.com/linux/fedora/docker-ce.repo'
+  RedHat:
+    - 'https://download.docker.com/linux/centos/docker-ce.repo'
+  CentOS:
+    - 'https://download.docker.com/linux/centos/docker-ce.repo'
+  Ubuntu:
+    - ''
+  Amazon:
+    - ''
+
+docker_ce_repo_key:
+  Debian:
+    - ''
+  Fedora:
+    - 'https://download.docker.com/linux/fedora/gpg'
+  RedHat:
+    - 'https://download.docker.com/linux/centos/gpg'
+  CentOS:
+    - 'https://download.docker.com/linux/centos/gpg'
+  Ubuntu:
+    - ''
+  Amazon:
+    - ''
+
+
+fahclient_ver: 7.5.1
+
 cpus: 2
 
 # True or False
-local_service: False
+local_service: True
 # Nvidia or Radeon
 gpu_type: nvidia
 # cuda or opencl
 gpu_driver: opencl
 # Only one of docker or podman should be set to true
 docker: False
-podman: True
+podman: False
 
 # If using docker set the compose version
 docker_compose: 1.25.4
