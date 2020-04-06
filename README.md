@@ -42,7 +42,6 @@ RHEL/CentOS 6 is currently unsupported as they are unable to verify the Folding 
 | Podman w/GPU    | -             | -             | -             | -     | -     | -         | -         | -         | -        | -            |
 | Docker CPU only | -             | -             | -             | -     | -     | -         | -         | -         | -        | -            |
 | Docker w/GPU    | -             | -             | -             | -     | -     | -         | -         | -         | -        | -            |
-|-----------------------------------------------------------------------------------------------------------------------------------------------|
 
 Key:
 
