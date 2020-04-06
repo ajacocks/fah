@@ -31,7 +31,8 @@
     state: absent
   when:
     (ansible_distribution == 'RedHat' and ansible_distribution_major_version >= '7') or
-    (ansible_distribution == 'CentOS' and ansible_distribution_major_version >= '7')
+    (ansible_distribution == 'CentOS' and ansible_distribution_major_version >= '7') or
+    (ansible_distribution == 'Amazon' )
 
 - name: Install FaH systemd service file
   copy:
@@ -39,7 +40,8 @@
     dest: /etc/systemd/system/FAHClient.service
   when:
     (ansible_distribution == 'RedHat' and ansible_distribution_major_version >= '7') or
-    (ansible_distribution == 'CentOS' and ansible_distribution_major_version >= '7')
+    (ansible_distribution == 'CentOS' and ansible_distribution_major_version >= '7') or
+    (ansible_distribution == 'Amazon' )
 
 - name: Start and enable FaH client
   service:
