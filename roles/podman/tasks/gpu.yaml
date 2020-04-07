@@ -1,0 +1,23 @@
+---
+
+# There appears to be an issue with switching to the fahclient user
+# to run podman rootless. Using sudo to change to another user, which is what
+# ansible is doing, doesn't work with podman
+- name: Pull the fahclient container image
+  podman_image:
+    name: quay.io/fah/fah-client-cuda
+    tag: v7.5.1
+
+- name: Put SELinux in permissive mode, Needed to allow container to use GPU
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: Start fahclient container
+  shell: |
+      podman run -d -p '7396:7396' -p '36330:36330' -v /etc/fahclient:/etc/fahclient:Z \
+                 -v /var/lib/fahclient:/var/lib/fahclient:Z \
+                 --hooks-dir /usr/share/containers/oci/hooks.d/ --name fahclient \
+                 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
+                 -e NVIDIA_VISIBLE_DEVICES=all \
+                 --userns=keep-id quay.io/fah/fah-client-cuda:v7.5.1

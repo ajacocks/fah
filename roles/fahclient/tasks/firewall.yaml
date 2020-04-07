@@ -1,0 +1,20 @@
+---
+
+- name: Populate service facts
+  service_facts:
+
+- name: Open firewalld port
+  firewalld:
+    immediate: true
+    port: '36330/tcp'
+    permanent: true
+    state: enabled
+  when: "'firewalld' in services"
+
+- name: Open UFW port
+  ufw:
+    rule: allow
+    port: '36330'
+    proto: tcp
+  when: "'ufw' in services"
+

@@ -1,0 +1,11 @@
+---
+# Tasks for configuring Supervisord.
+- include: dependencies.yaml
+
+- include_tasks: cpu_only.yaml
+  when: not gpu |bool
+
+- include_tasks: gpu.yaml
+  when: gpu |bool
+
+- include: systemd.yaml
