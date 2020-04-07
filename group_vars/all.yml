@@ -52,7 +52,6 @@ docker_ce_repo_key:
   Amazon:
     - ''
 
-
 fahclient_ver: 7.5.1
 
 cpus: 2
@@ -62,7 +61,7 @@ local_service: True
 # Nvidia or Radeon
 gpu_type: nvidia
 # cuda or opencl
-gpu_driver: opencl
+gpu_driver: cuda
 # Only one of docker or podman should be set to true
 docker: False
 podman: False
