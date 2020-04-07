@@ -1,0 +1,73 @@
+---
+
+# This needs to be fixed to ensure that the kernel-devel packages
+# is exactly the same as the kernel. If there is a kernel upgrade
+# you get the latest kernel-devel but the old kernel and the Nvidia
+# drivers don't install
+- name: install kernel-devel
+  package: 
+    name: kernel-devel-{{ ansible_kernel }}
+    state: present
+
+- name: install EPEL
+  package: 
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+    state: present
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS'"
+
+- name: Enable Cuda Repository (RHEL/CentOS7)
+  get_url:
+    url: https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
+    dest: /etc/yum.repos.d/cuda.repo
+    owner: root
+    group: root
+    mode: 0644
+  when:
+    (ansible_distribution == 'RedHat' and ansible_distribution_major_version == '7') or
+    (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7') or
+    (ansible_distribution == 'Amazon')
+
+
+- name: Enable Cuda Repository (RHEL/CentOS8)
+  get_url:
+    url: https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+    dest: /etc/yum.repos.d/cuda.repo
+    owner: root
+    group: root
+    mode: 0644
+  when:
+    (ansible_distribution == 'RedHat' and ansible_distribution_major_version == '8') or
+    (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '8')
+
+- name: Enable Cuda Repository (Fedora)
+  get_url:
+    url: https://developer.download.nvidia.com/compute/cuda/repos/fedora29/x86_64/cuda-fedora29.repo
+    dest: /etc/yum.repos.d/cuda.repo
+    owner: root
+    group: root
+    mode: 0644
+  when:
+    (ansible_distribution == 'Fedora')
+
+# TODO: Not sure if this repo works for Debian
+- name: Enable Cuda Repository (Debian/Ubuntu)
+  apt:
+    deb: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1810/x86_64/cuda-repo-ubuntu1810_10.1.168-1_amd64.deb
+  when:
+    (ansible_distribution == 'Ubuntu') or
+    (ansible_distribution == 'Debian')
+
+- name: install NVIDIA drivers
+  yum:  
+    name: cuda
+    state: present
+    update_cache: yes
+  when:
+    (ansible_distribution == 'RedHat') or
+    (ansible_distribution == 'CentOS') or
+    (ansible_distribution == 'Amazon')
+
+#- name: load NVIDIA and unified memory kernel modules
+#  shell: nvidia-modprobe && nvidia-modprobe -u
+
+...

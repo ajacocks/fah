@@ -1,0 +1,97 @@
+---
+
+- name: Ensure python3 is installed
+  package:
+    name:
+      - python3
+      - python3-pip
+    state: present
+
+- name: Enable Docker CE Repository
+  get_url:
+    url: "{{ item }}"
+    dest: /etc/yum.repos.d/docker-ce.repo
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ docker_ce_repo[ ansible_distribution ] }}"
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'"
+
+- name: Install the Docker CE Repo GPG Key
+  rpm_key:
+    state: present
+    key: "{{ item }}"
+  with_items: "{{ docker_ce_repo_key[ ansible_distribution ] }}"
+  when: "ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'"
+
+# TODO: Should be changed to lineinfile module instead of using sed
+# Only run this on RHEL 8
+- name: Enable the Docker CE Repository
+  shell: sed -i '/^gpgkey=https:\/\/download.docker.com\/linux\/centos\/gpg/a module_hotfixes=True' /etc/yum.repos.d/docker-ce.repo
+  when: "ansible_distribution == 'RedHat' and ansible_distribution_major_version == 8"
+
+- name: Install Docker-CE
+  package:
+    name:
+      - docker-ce
+    state: present
+
+# Docker Compose is not needed but can be added
+#- name: Download and install docker-compose
+#  get_url:
+#    url: https://github.com/docker/compose/releases/download/{{ docker_compose }}/docker-compose-Linux-x86_64
+#    dest: /usr/local/bin/docker-compose
+#    owner: root
+#    group: root
+#    mode: 0755
+
+# Set ip forwarding on in /proc and in the sysctl file and reload if necessary
+- sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- name: Install IPTables Service
+  package:
+    name:
+      - iptables-services
+    state: present
+
+# Pull a list of available services
+- name: Populate service facts
+  service_facts:
+
+- name: Stop and disable firewalld service
+  service:
+    name: firewalld
+    daemon_reload: false
+    enabled: false
+    state: stopped
+  when: "'firewalld' in services"
+
+- name: Stop and disable nftables service
+  service:
+    name: nftables
+    daemon_reload: false
+    enabled: false
+    state: stopped
+  when: "'nftables' in services"
+
+- name: Start and enable IPTables service
+  service:
+    name: iptables
+    daemon_reload: false
+    enabled: true
+    state: started 
+  when: "'firewalld' in services"
+
+- name: Start and enable Docker service
+  service:
+    name: docker
+    daemon_reload: false
+    enabled: true
+    state: started  
+
+...
