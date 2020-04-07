@@ -1,0 +1,12 @@
+---
+
+- name: Generate systemd service to startup fahclient pod on boot
+  shell: podman generate systemd --name --restart-policy=no fahclient > /etc/systemd/system/FAHClient.service
+
+- name: Start and enable FaH client
+  service:
+    name: FAHClient
+    daemon_reload: true
+    enabled: true
+    state: started
+
