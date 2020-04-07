@@ -7,9 +7,9 @@ chost='127.0.0.1'
 # set the password that the control host will access the clients with here:
 cpass='password'
 # set your Folding-at-Home username, passkey, and team, here:
-username='anonymous'
+username='Anonymous'
 passkey=''
-team='0'
+team='11812'
 
 # Allow FAH to use the full power of the host
 power=full
