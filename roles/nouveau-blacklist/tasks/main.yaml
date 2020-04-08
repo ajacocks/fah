@@ -1,10 +1,22 @@
 ---
 
+# TODO: How to do this on Debian/Ubuntu
 - name: Update grub to disable the nouveau driver
   shell: grubby --update-kernel=ALL --args="rd.driver.blacklist=nouveau nouveau.modeset=0"
+  when:
+    (ansible_distribution == 'RedHat') or
+    (ansible_distribution == 'CentOS') or
+    (ansible_distribution == 'Fedora') or
+    (ansible_distribution == 'Amazon')
   
-- name: copy nouveau blacklist config up to fast_nodes
+- name: Install nouveau blacklist config
   copy:
     src: nouveau.conf
     dest: /etc/modprobe.d/nouveau.conf
     mode: 0644
+
+- name: Update initramfs on Debian/Ubuntu systems
+  command: update-initramfs -u
+  when:
+    (ansible_distribution == 'Debian' ) or
+    (ansible_distribution == 'Ubuntu' )
