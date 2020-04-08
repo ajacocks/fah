@@ -27,7 +27,8 @@
     state: directory
     owner: fahclient
     group: fahclient
-    mode: 0777
+    mode: u=rw,g=rw,o=r
+    recurse: yes
   with_items:
     - /var/lib/fahclient
     - /etc/fahclient

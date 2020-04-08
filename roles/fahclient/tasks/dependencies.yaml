@@ -1,14 +1,5 @@
 ---
 
-- name: Make sure python-apt installed on Debian based hosts
-  apt:
-    name: python-apt
-    state: present
-    update_cache: yes
-  when:
-    (ansible_distribution == 'Debian') or
-    (ansible_distribution == 'Ubuntu')
-
 - name: install required packages (RPM)
   package:
     name:
