@@ -10,6 +10,15 @@
       cmd: awk 'BEGIN{result="false"} $0 ~ /0x10de/ {gsub(/\/vendor/, "/class", FILENAME); getline pciclass < FILENAME; if(pciclass ~ /^0x03/) result="true"}  END{print result}'  /sys/bus/pci/devices/*/vendor
     register: has_nvidia_gpu
 
+- name: Make sure python-apt installed on Debian based hosts
+  apt:
+    name: python-apt
+    state: present
+    update_cache: yes
+  when:
+    (ansible_distribution == 'Debian') or
+    (ansible_distribution == 'Ubuntu')
+
   - name: Disable Nouveau Driver
     include_role:
       name: nouveau-blacklist
