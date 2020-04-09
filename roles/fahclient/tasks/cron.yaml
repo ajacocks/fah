@@ -16,5 +16,3 @@
     job: "/usr/local/bin/fahclient_cycle.sh"
     user: fahclient
   when: "enable_cron == True"
-
-  

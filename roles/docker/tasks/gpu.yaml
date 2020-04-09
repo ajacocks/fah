@@ -14,7 +14,7 @@
   docker_container:
     name: fahclient
     image: quay.io/fah/fah-client-cuda:v7.5.1
-    detach: yes
+    detach: true
     volumes:
       - /etc/fahclient:/etc/fahclient:Z
       - /var/lib/fahclient:/var/lib/fahclient:Z

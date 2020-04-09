@@ -8,7 +8,6 @@
     state: latest
 
 - name: install nvidia-container-runtime
-  yum: 
+  yum:
     name: nvidia-container-runtime
     state: latest
-

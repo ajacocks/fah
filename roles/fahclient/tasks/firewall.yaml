@@ -17,4 +17,3 @@
     port: '36330'
     proto: tcp
   when: "'ufw' in services"
-
