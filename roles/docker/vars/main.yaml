@@ -1,0 +1,33 @@
+---
+
+# If using docker set the compose version
+docker_compose: 1.25.4
+
+docker_ce_repo:
+  Debian:
+    - ''
+  Fedora:
+    - 'https://download.docker.com/linux/fedora/docker-ce.repo'
+  RedHat:
+    - 'https://download.docker.com/linux/centos/docker-ce.repo'
+  CentOS:
+    - 'https://download.docker.com/linux/centos/docker-ce.repo'
+  Ubuntu:
+    - ''
+  Amazon:
+    - ''
+
+docker_ce_repo_key:
+  Debian:
+    - ''
+  Fedora:
+    - 'https://download.docker.com/linux/fedora/gpg'
+  RedHat:
+    - 'https://download.docker.com/linux/centos/gpg'
+  CentOS:
+    - 'https://download.docker.com/linux/centos/gpg'
+  Ubuntu:
+    - ''
+  Amazon:
+    - ''
+
