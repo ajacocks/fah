@@ -3,34 +3,13 @@
 
 [servers:vars]
 
-######################################################
-# These vars end up in the fah client config.xml
-
-# insert the IP address of your control host (where the FAHControl client will run) here:
-chost='127.0.0.1'
-# set the password that the control host will access the clients with here:
-cpass='password'
-# set your Folding-at-Home username, passkey, and team, here:
-username='Anonymous'
-passkey=''
-team='11812'
-
-# Allow FAH to use the full power of the host
-power=full
-# Enable GPU Support
-gpu=true
-# Enable SMP Support
-smp=true
-# Allow Workloads for any cause
-cause=ANY
-
 #####################################################
 
 # Variables below can be used with AWS instances
 #ansible_ssh_private_key_file=
-#ansible_connection=ssh
-#ansible_user=ec2-user
-#ansible_become=yes
-#ansible_become_method=sudo
-#ansible_become_user=root
+ansible_connection=ssh
+#ansible_user=
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_user=root
 

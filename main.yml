@@ -4,7 +4,7 @@
 
   tasks:
 
-# This way of detecting GPUs is portable and doesn't require root
+  # This way of detecting GPUs is portable and doesn't require root
   - name: check for Nvidia GPU
     shell:
       cmd: awk 'BEGIN{result="false"} $0 ~ /0x10de/ {gsub(/\/vendor/, "/class", FILENAME); getline pciclass < FILENAME; if(pciclass ~ /^0x03/) result="true"}  END{print result}'  /sys/bus/pci/devices/*/vendor

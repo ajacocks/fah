@@ -1,0 +1,70 @@
+---
+ 
+fah_pkgs:
+  Debian:
+    - 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.5/fahclient_7.5.1_amd64.deb'
+#    - 'https://download.foldingathome.org/releases/public/release/fahcontrol/debian-stable-64bit/v7.5/fahcontrol_7.5.1-1_all.deb'
+#    - 'https://download.foldingathome.org/releases/public/release/fahviewer/debian-stable-64bit/v7.5/fahviewer_7.5.1_amd64.deb'
+  Fedora:
+    - 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahcontrol/centos-6.7-64bit/v7.5/fahcontrol-7.5.1-1.noarch.rpm'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahviewer/centos-6.7-64bit/v7.5/fahviewer-7.5.1-1.x86_64.rpm'
+  RedHat:
+    - 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahcontrol/centos-6.7-64bit/v7.5/fahcontrol-7.5.1-1.noarch.rpm'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahviewer/centos-6.7-64bit/v7.5/fahviewer-7.5.1-1.x86_64.rpm'
+  CentOS:
+    - 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahcontrol/centos-6.7-64bit/v7.5/fahcontrol-7.5.1-1.noarch.rpm'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahviewer/centos-6.7-64bit/v7.5/fahviewer-7.5.1-1.x86_64.rpm'
+  Ubuntu:
+    - 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.5/fahclient_7.5.1_amd64.deb'
+#    - 'https://download.foldingathome.org/releases/public/release/fahcontrol/debian-stable-64bit/v7.5/fahcontrol_7.5.1-1_all.deb'
+#    - 'https://download.foldingathome.org/releases/public/release/fahviewer/debian-stable-64bit/v7.5/fahviewer_7.5.1_amd64.deb'
+  Amazon:
+    - 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm'
+
+# F@H Client version
+# Supported Versions:
+#   - 7.5.1
+fahclient_ver: 7.5.1
+
+# True or False
+local_service: True
+# Nvidia or Radeon
+gpu_type: nvidia
+# cuda or opencl
+gpu_driver: cuda
+
+# Enable cronjob to pause/unpause FAHClient
+enable_cron: True
+
+######################################################
+# These vars end up in the fah client config.xml
+
+# insert the IP address of your control host (where the FAHControl client will run) here:
+chost: '127.0.0.1'
+# set the password that the control host will access the clients with here:
+cpass: 'password'
+# set your Folding-at-Home username, passkey, and team, here:
+username: 'Anonymous'
+passkey: ''
+team: '11812'
+
+# Allow FAH to use the full power of the host
+power: full
+# Number of CPUs to use, <= 0 means all
+cpus: 0
+# Max size in bytes of a work unit packet. Can be small=5MiB, normal=25MiB,
+# big=500MiB or a number.
+max-packet-size: 'normal'
+# Enable GPU Support
+# Note: This variable is in the all group vars because it controls the roles
+# This is left here to make it easier to find
+#gpu: false
+# Enable SMP Support
+smp: true
+# Allow Workloads for any cause
+cause: 'ANY'
+# The client type. Can be 'normal', 'advanced' or 'beta'
+client-type: 'normal'
