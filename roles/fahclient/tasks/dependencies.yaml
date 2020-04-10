@@ -64,13 +64,13 @@
   get_url:
     url: "{{ item }}"
     dest: /tmp
-  with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
+  with_items: "{{ fah_client_pkgs[ ansible_distribution ] }}"
   when:
     ('fahclient' not in ansible_facts.packages)
 
 - name: install FaH packages (RPM)
   command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
-  with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
+  with_items: "{{ fah_client_pkgs[ ansible_distribution ] }}"
   when:
     ('fahclient' not in ansible_facts.packages) and
     ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Amazon' )
@@ -78,7 +78,7 @@
 - name: install FaH packages (DEB)
   apt:
     deb: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
-  with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
+  with_items: "{{ fah_client_pkgs[ ansible_distribution ] }}"
   when:
     ('fahclient' not in ansible_facts.packages) and
     (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
