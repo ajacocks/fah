@@ -1,14 +1,26 @@
-[servers]
+[clients]
 # add the list of hosts that you want to install the Folding-at-Home client on, here:
 
-[servers:vars]
+[controllers]
+# add the list of hosts that you want to install the Folding-at-Home controller on, here:
+
+[viewers]
+# add the list of hosts that you want to install the Folding-at-Home viewer on, here:
+
+[clients:vars]
+
+[controllers:vars]
+
+[viewers:vars]
+
+[all:vars]
 
 #####################################################
 
 # Variables below can be used with AWS instances
 #ansible_ssh_private_key_file=
 ansible_connection=ssh
-#ansible_user=
+#ansible_user=ec2-user
 ansible_become=yes
 ansible_become_method=sudo
 ansible_become_user=root
