@@ -1,0 +1,31 @@
+---
+
+- name: Gather package facts
+  package_facts:
+    manager: auto
+
+# TODO: This will not work on RHEL 6 because RHEL 6 cannot validate
+# F@H's SSL Certificates
+- name: download packages for the FaH Control
+  get_url:
+    url: "{{ item }}"
+    dest: /tmp
+  with_items: "{{ fah_control_pkgs[ ansible_distribution ] }}"
+  when:
+    ('fahcontrol' not in ansible_facts.packages)
+
+- name: install FaH packages (RPM)
+  command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
+  with_items: "{{ fah_control_pkgs[ ansible_distribution ] }}"
+  when:
+    ('fahcontrol' not in ansible_facts.packages) and
+    ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Amazon' )
+
+- name: install FaH packages (DEB)
+  apt:
+    deb: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
+  with_items: "{{ fah_control_pkgs[ ansible_distribution ] }}"
+  when:
+    ('fahcontrol' not in ansible_facts.packages) and
+    (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
+
