@@ -14,7 +14,7 @@
     apt:
       name: python-apt
       state: present
-      update_cache: yes
+      update_cache: true
     when:
       (ansible_distribution == 'Debian') or
       (ansible_distribution == 'Ubuntu')
@@ -33,8 +33,8 @@
       (gpu | bool) and
       (has_nvidia_gpu.stdout == "true")
 
-  #TODO: Do we need OCI hooks or something else to enable radeon containers like nvidia?
-  #TODO: What is needed if using docker instead of podman
+  # TODO: Do we need OCI hooks or something else to enable radeon containers like nvidia?
+  # TODO: What is needed if using docker instead of podman
   - name: Install Nvidia OCI Hooks
     include_role:
       name: nvidia-container-runtime-hook
@@ -65,7 +65,7 @@
 
   - include_role:
       name: fahclient
-  
+
   - name: Install and run fahclient with docker
     include_role:
       name: docker

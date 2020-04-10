@@ -29,7 +29,7 @@
 # Package only needed in RHEL 8
 - name: install required packages (RPM)
   package:
-    name: 
+    name:
       - compat-openssl10
   when:
     (ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS') and
@@ -65,13 +65,13 @@
     url: "{{ item }}"
     dest: /tmp
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-  when: 
+  when:
     ('fahclient' not in ansible_facts.packages)
 
 - name: install FaH packages (RPM)
   command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-  when: 
+  when:
     ('fahclient' not in ansible_facts.packages) and
     ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Amazon' )
 
@@ -79,7 +79,6 @@
   apt:
     deb: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
   with_items: "{{ fah_pkgs[ ansible_distribution ] }}"
-  when: 
+  when:
     ('fahclient' not in ansible_facts.packages) and
     (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
-  

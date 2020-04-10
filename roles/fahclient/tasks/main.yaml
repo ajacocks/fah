@@ -28,7 +28,7 @@
     owner: fahclient
     group: fahclient
     mode: u=rw,g=rw,o=r
-    recurse: yes
+    recurse: true
   with_items:
     - /var/lib/fahclient
     - /etc/fahclient
@@ -47,4 +47,3 @@
 
 - import_tasks: cron.yaml
   when: local_service | bool
-

@@ -3,8 +3,8 @@
 fah_pkgs:
   Debian:
     - 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.5/fahclient_7.5.1_amd64.deb'
-#    - 'https://download.foldingathome.org/releases/public/release/fahcontrol/debian-stable-64bit/v7.5/fahcontrol_7.5.1-1_all.deb'
-#    - 'https://download.foldingathome.org/releases/public/release/fahviewer/debian-stable-64bit/v7.5/fahviewer_7.5.1_amd64.deb'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahcontrol/debian-stable-64bit/v7.5/fahcontrol_7.5.1-1_all.deb'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahviewer/debian-stable-64bit/v7.5/fahviewer_7.5.1_amd64.deb'
   Fedora:
     - 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm'
   #  - 'https://download.foldingathome.org/releases/public/release/fahcontrol/centos-6.7-64bit/v7.5/fahcontrol-7.5.1-1.noarch.rpm'
@@ -19,8 +19,8 @@ fah_pkgs:
   #  - 'https://download.foldingathome.org/releases/public/release/fahviewer/centos-6.7-64bit/v7.5/fahviewer-7.5.1-1.x86_64.rpm'
   Ubuntu:
     - 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.5/fahclient_7.5.1_amd64.deb'
-#    - 'https://download.foldingathome.org/releases/public/release/fahcontrol/debian-stable-64bit/v7.5/fahcontrol_7.5.1-1_all.deb'
-#    - 'https://download.foldingathome.org/releases/public/release/fahviewer/debian-stable-64bit/v7.5/fahviewer_7.5.1_amd64.deb'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahcontrol/debian-stable-64bit/v7.5/fahcontrol_7.5.1-1_all.deb'
+  #  - 'https://download.foldingathome.org/releases/public/release/fahviewer/debian-stable-64bit/v7.5/fahviewer_7.5.1_amd64.deb'
   Amazon:
     - 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm'
 
@@ -30,14 +30,14 @@ fah_pkgs:
 fahclient_ver: 7.5.1
 
 # True or False
-local_service: True
+local_service: true
 # Nvidia or Radeon
 gpu_type: nvidia
 # cuda or opencl
 gpu_driver: cuda
 
 # Enable cronjob to pause/unpause FAHClient
-enable_cron: True
+enable_cron: true
 
 ######################################################
 # These vars end up in the fah client config.xml
@@ -61,7 +61,7 @@ max-packet-size: 'normal'
 # Enable GPU Support
 # Note: This variable is in the all group vars because it controls the roles
 # This is left here to make it easier to find
-#gpu: false
+# gpu: false
 # Enable SMP Support
 smp: true
 # Allow Workloads for any cause

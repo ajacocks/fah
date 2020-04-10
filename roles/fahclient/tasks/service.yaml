@@ -49,4 +49,3 @@
     daemon_reload: true
     enabled: true
     state: started
-
