@@ -60,11 +60,10 @@
 
 # TODO: This will not work on RHEL 6 because RHEL 6 cannot validate
 # F@H's SSL Certificates
-- name: download packages for the FaH client
+- name: Download packages for the FaH client
   get_url:
-    url: "{{ item }}"
+    url: "{{ (fah_client_pkgs[ ansible_distribution ])[fahclient_ver] }}"
     dest: /tmp
-  with_items: "{{ fah_client_pkgs[ ansible_distribution ] }}"
   when:
     ('fahclient' not in ansible_facts.packages)
 
