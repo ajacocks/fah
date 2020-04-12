@@ -8,9 +8,8 @@
 # F@H's SSL Certificates
 - name: download packages for the FaH Control
   get_url:
-    url: "{{ item }}"
+    url: "{{ (fah_control_pkgs[ ansible_distribution ])[fahcontrol_ver] }}"
     dest: /tmp
-  with_items: "{{ fah_control_pkgs[ ansible_distribution ] }}"
   when:
     ('fahcontrol' not in ansible_facts.packages)
 
