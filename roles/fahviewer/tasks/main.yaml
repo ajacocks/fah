@@ -8,9 +8,8 @@
 # F@H's SSL Certificates
 - name: download packages for the FaH Viewer
   get_url:
-    url: "{{ item }}"
+    url: "{{ (fah_viewer_pkgs[ ansible_distribution ])[fahviewer_ver] }}"
     dest: /tmp
-  with_items: "{{ fah_viewer_pkgs[ ansible_distribution ] }}"
   when:
     ('fahviewer' not in ansible_facts.packages)
 
