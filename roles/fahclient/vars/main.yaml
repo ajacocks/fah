@@ -61,7 +61,7 @@ fah_client_pkgs:
 # F@H Client version
 # Supported Versions:
 #   - 7.5.1
-fahclient_ver: 7.5.1
+fahclient_ver: 7.6.2
 
 # True or False
 local_service: true
