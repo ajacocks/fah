@@ -12,6 +12,7 @@ fah_control_pkgs:
    '7.6.1': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/debian-stable-64bit/v7.6/fahcontrol_7.6.1-1_all.deb'
    '7.6.2': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/debian-stable-64bit/v7.6/fahcontrol_7.6.2-1_all.deb'
    '7.6.3': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/debian-stable-64bit/v7.6/fahcontrol_7.6.3-1_all.deb'
+
   Fedora:
     '7.4.11': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.4/fahcontrol-7.4.11-1.noarch.rpm'
     '7.4.15': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.4/fahcontrol-7.4.15-1.noarch.rpm'
@@ -23,6 +24,11 @@ fah_control_pkgs:
     '7.6.1': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.1-1.noarch.rpm'
     '7.6.2': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.2-1.noarch.rpm'
     '7.6.3': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.3-1.noarch.rpm'
+    '7.6.4': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.4-1.noarch.rpm'
+    '7.6.5': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.5-1.noarch.rpm'
+    '7.6.6': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.6-1.noarch.rpm'
+    'latest': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/latest.rpm'
+
   RedHat:
     '7.4.11': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.4/fahcontrol-7.4.11-1.noarch.rpm'
     '7.4.15': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.4/fahcontrol-7.4.15-1.noarch.rpm'
@@ -34,6 +40,11 @@ fah_control_pkgs:
     '7.6.1': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.1-1.noarch.rpm'
     '7.6.2': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.2-1.noarch.rpm'
     '7.6.3': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.3-1.noarch.rpm'
+    '7.6.4': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.4-1.noarch.rpm'
+    '7.6.5': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.5-1.noarch.rpm'
+    '7.6.6': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/fahcontrol-7.6.6-1.noarch.rpm'
+    'latest': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.6/latest.rpm'
+
   CentOS:
     '7.4.11': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.4/fahcontrol-7.4.11-1.noarch.rpm'
     '7.4.15': 'https://download.foldingathome.org/releases/beta/release/fahcontrol/centos-6.7-64bit/v7.4/fahcontrol-7.4.15-1.noarch.rpm'
