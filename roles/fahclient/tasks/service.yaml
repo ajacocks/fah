@@ -2,11 +2,17 @@
 
 # Client isn't running on RHEL/Centos/Fedora/Amazon hosts
 # because it is installed with --noscripts
-- name: Stop FaH client
+- name: Stop FaH client (init)
   service:
     name: FAHClient
     state: stopped
   when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
+
+- name: Stop F@H client (systemd)
+  systemd: 
+    name: FAHClient.service
+    state: stopped
+  when: "ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'"
 
 - name: Wait for termination of all FaH client processes
   wait_for:
