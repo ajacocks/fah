@@ -68,8 +68,8 @@
     ('fahclient' not in ansible_facts.packages)
 
 - name: install FaH packages (RPM)
-  command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
-  with_items: "{{ fah_client_pkgs[ ansible_distribution ] }}"
+  command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '^http.*/', '' ) }}"
+  with_items: "{{ fah_client_pkgs[ ansible_distribution ][ fahclient_ver ] }}"
   when:
     ('fahclient' not in ansible_facts.packages) and
     ( ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS' or ansible_distribution == 'Amazon' )

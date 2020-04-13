@@ -9,11 +9,11 @@
     port: '36330/tcp'
     permanent: true
     state: enabled
-  when: "'firewalld' in services"
+  when: "'firewalld.service' in services"
 
 - name: Open UFW port
   ufw:
     rule: allow
     port: '36330'
     proto: tcp
-  when: "'ufw' in services"
+  when: "'ufw.service' in services"

@@ -1,9 +1,0 @@
----
-
-# Only one of docker or podman should be set to true
-docker: false
-podman: false
-
-gpu: false
-
-...
