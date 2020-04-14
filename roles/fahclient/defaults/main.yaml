@@ -3,7 +3,7 @@
 # F@H Client version
 # Supported Versions:
 #   - 7.5.1
-fahclient_ver: 7.6.2
+fahclient_ver: 7.6.5
 
 # True or False
 local_service: true
