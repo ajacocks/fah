@@ -7,6 +7,8 @@ fahclient_ver: 7.6.5
 
 # True or False
 local_service: true
+# Enable GPU?
+gpu: false
 # Nvidia or Radeon
 gpu_type: nvidia
 # cuda or opencl
