@@ -18,11 +18,12 @@
 
 
 - hosts: clients
+  become: true
   tasks:
 
     - name: Include GPU tasks if enabled
-      include: gpu.yaml
-      static: no
+      include_tasks: gpu.yaml
+#      static: no
       when: (gpu | bool)
 
     - import_role:
@@ -37,12 +38,14 @@
       when: (docker | bool)
 
 - hosts: controllers
+  become: true
   tasks:
 
     - import_role:
         name: fahcontroller
 
 - hosts: viewers
+  become: true
   tasks:
 
     - import_role:

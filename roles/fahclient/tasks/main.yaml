@@ -39,6 +39,11 @@
     src: sample-config.xml.j2
     dest: /etc/fahclient/config.xml
 
+- name: restart FAHClient to clean up config.xml
+  service: 
+    name: FAHClient
+    state: restarted
+
 - import_tasks: service.yaml
   when: local_service | bool
 
