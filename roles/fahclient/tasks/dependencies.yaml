@@ -58,10 +58,6 @@
   package_facts:
     manager: auto
 
-- name: JW echo version/url
-  debug: 
-    msg: "File to download: {{ (fah_client_pkgs[ ansible_distribution ])[fahclient_ver]  }}"
-
 # TODO: This will not work on RHEL 6 because RHEL 6 cannot validate
 # F@H's SSL Certificates
 - name: Download packages for the FaH client
