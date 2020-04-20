@@ -14,7 +14,9 @@
     ('fahcontrol' not in ansible_facts.packages)
 
 - name: install FaH packages (RPM)
-  command: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '^http.*/', '' ) }}"
+  shell: "rpm -ivh --nodeps --noscripts /tmp/{{ item | regex_replace( '^http.*/', '' ) }}"
+  args: 
+    warn: no
   with_items: "{{ fah_control_pkgs[ ansible_distribution ][ fahcontrol_ver ] }}"
   when:
     ('fahcontrol' not in ansible_facts.packages) and

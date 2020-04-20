@@ -1,22 +1,43 @@
 [clients]
-# add the list of hosts that you want to install the Folding-at-Home client on, here:
+#your client1
+#your client2
+
+#Notes
+# for updating services on ansible server:
+#localhost ansible_connection=local  
+# If you get complaints about python version
+#phenom1 ansible_python_interpreter=/usr/bin/python3
 
 [controllers]
-# add the list of hosts that you want to install the Folding-at-Home controller on, here:
+#your controller
 
+# If you get any python2-dnf errors, append "ansible_python_interpreter=/usr/bin/python3" 
+# After the hostname below as a temporary fix. Can remove later.
 [viewers]
-# add the list of hosts that you want to install the Folding-at-Home viewer on, here:
+#your-controller
 
+# add the list of hosts that you want to install the Folding-at-Home viewer on, here:
+#coffee ansible_connection=local  ansible_python_interpreter=/usr/bin/python3
 [clients:vars]
+fahclient_ver= 7.6.10
 
 [controllers:vars]
+fahcontrol_ver= 7.6.10
 
 [viewers:vars]
+fahviewer_ver= 7.6.10
 
 [all:vars]
+chost='IP of Control Node'
+cpass='control-node-password'
+username='(Yourname @ folding@home)'
+passkey='(redacted passkey from folding@home'
+power=full
+gpu=false
+smp=true
+cause=any
 
 #####################################################
-
 # Variables below can be used with AWS instances
 #ansible_ssh_private_key_file=
 ansible_connection=ssh

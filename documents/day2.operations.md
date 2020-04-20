@@ -6,16 +6,20 @@ This file is updated by the Control Node.  No need to manually edit it.
 Changes made by the Control Node will be invoked immediately and automatically. 
 
 If a CPU or GPU job hangs or is 0% for long, pause and restart or idle and un-idle it.
+Sometimes an app restart (systemctl restart FAHClient) will help. 
 
-You can view the progress of One Thread by selecting the client in the FAHControl GUI, identifying the SlotID in the "Folding Slots" window and then selecting log tab, checking the Slot box and selecting which slot you are researching.
+You can view the progress of One Thread by selecting the client in the FAHControl GUI, 
+identifying the SlotID in the "Folding Slots" window and then selecting log tab, 
+checking the Slot box and selecting which slot you are researching.
 
-To run the FAHControl as Non-Root user over ssh, on Control node:
+To run the FAHControl as Non-Root user over ssh, on Control node, use SUID.  
+Note: this is NEVER safe on a secure or accessible system.
 
 [root@coffee ~]# chmod 4755 /usr/bin/FAHControl
 [root@coffee ~]# ls -l /usr/bin/FAHControl
 -rwsr-xr-x 1 root root 2591 Mar  4  2014 /usr/bin/FAHControl
 
-Then from another box, ssh with "-X" option:
+Run that on console, or from another box using something like ssh with "-X" option:
 
 ╚═>ssh -X (Non-root-user)@coffee
 (non-root-user)@coffee's password: 
