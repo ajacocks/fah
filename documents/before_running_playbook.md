@@ -10,7 +10,7 @@ Hack up inventory file in the top level of the playbook
  - add FAHControl nodes (soon)
  - add FAHView nodes (soon -if you want it)
  
- - Set the versions you want to run. At the moment 7.6.6 is good. 
+ - Set the versions you want to run. At the moment 7.6.9 is latest "public". 
    check around: https://download.foldingathome.org/releases/
 
  - Set variables down the bottom of the file: 
@@ -25,41 +25,52 @@ Hack up inventory file in the top level of the playbook
 
 
 === Inventory file format ===============================================================
+[clients]
+#your client1
+#your client2
 
-clients]
-# add the list of hosts that you want to install the Folding-at-Home client on, here:
-#localhost ansible_connection=local 
-#box1  
-#box2 
+#Notes
+# for updating services on ansible server:
+#localhost ansible_connection=local  
+# If you get complaints about python version
+#phenom1 ansible_python_interpreter=/usr/bin/python3
 
-[controllers] 
-# add the list of hosts that you want to install the Folding-at-Home controller on, here:
-#localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
-# note: worst case, install the Compute nodes, then find the fahcontrol node app at: 
-# https://download.foldingathome.org/releases/
-#coffee
+[controllers]
+#your controller
 
+# After the hostname below as a temporary fix. Can remove later.
 [viewers]
-# add the list of hosts that you want to install the Folding-at-Home viewer on, here:
+#your-viewer
 
+#coffee ansible_connection=local  ansible_python_interpreter=/usr/bin/python3
 [clients:vars]
-fahclient_ver= 7.6.6
+fahclient_ver= 7.6.9
 
 [controllers:vars]
-fahcontrol_ver= 7.6.6
+fahcontrol_ver= 7.6.9
 
 [viewers:vars]
-fahviewer_ver= 7.6.6
+fahviewer_ver= 7.6.9
 
 [all:vars]
-chost='192.168.1.116'
-cpass='redacted'
-username='JohnWesterdale'
-passkey='d7905408acb627b4d7905408acb627b4'
+chost='IP of Control Node'
+cpass='control-node-password'
+username='(Yourname @ folding@home)'
+passkey='(redacted passkey from folding@home'
 power=full
 gpu=false
 smp=true
-cause=any
+cause=COVID-19
+
+#####################################################
+# Variables below can be used with AWS instances
+#ansible_ssh_private_key_file=
+ansible_connection=ssh
+#ansible_user=ec2-user
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_user=root
+
 
 ==========================================================================================
 
