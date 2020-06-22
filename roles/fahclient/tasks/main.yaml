@@ -15,6 +15,7 @@
     name: fahclient
     state: present
     group: fahclient
+    groups: video
     comment: "Folding@home Client"
     shell: /sbin/nologin
     expires: -1

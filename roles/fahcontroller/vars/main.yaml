@@ -55,8 +55,11 @@ fah_control_pkgs:
     '7.6.7':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.7-1.noarch.rpm'
     '7.6.8':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.8-1.noarch.rpm'
     '7.6.9':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.9-1.noarch.rpm'
-    '7.6.10': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
-    'latestpubic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
+    '7.6.10': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
+    '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.noarch.rpm'
+    '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.noarch.rpm'
+    '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.noarch.rpm'
+    'latestpublic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
     'latestbeta':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
 
   RedHat:
@@ -76,8 +79,11 @@ fah_control_pkgs:
     '7.6.7':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.7-1.noarch.rpm'
     '7.6.8':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.8-1.noarch.rpm'
     '7.6.9':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.9-1.noarch.rpm'
-    '7.6.10': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
-    'latestpubic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
+    '7.6.10': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
+    '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.noarch.rpm'
+    '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.noarch.rpm'
+    '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.noarch.rpm'
+    'latestpublic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
     'latestbeta':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
 
   CentOS:
@@ -97,8 +103,11 @@ fah_control_pkgs:
     '7.6.7':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.7-1.noarch.rpm'
     '7.6.8':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.8-1.noarch.rpm'
     '7.6.9':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.9-1.noarch.rpm'
-    '7.6.10': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
-    'latestpubic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
+    '7.6.10': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
+    '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.noarch.rpm'
+    '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.noarch.rpm'
+    '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.noarch.rpm'
+    'latestpublic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
     'latestbeta':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
 
   Amazon:
@@ -118,7 +127,10 @@ fah_control_pkgs:
     '7.6.7':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.7-1.noarch.rpm'
     '7.6.8':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.8-1.noarch.rpm'
     '7.6.9':  '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.9-1.noarch.rpm'
-    '7.6.10': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
-    'latestpubic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
+    '7.6.10': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.10-1.noarch.rpm'
+    '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.noarch.rpm'
+    '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.noarch.rpm'
+    '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.noarch.rpm'
+    'latestpublic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
     'latestbeta':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
 
