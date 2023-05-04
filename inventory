@@ -2,7 +2,7 @@
 #your client1
 #your client2
 
-#Notes
+# Notes
 # for updating services on ansible server:
 #localhost ansible_connection=local  
 # If you get complaints about python version
@@ -19,19 +19,20 @@
 # add the list of hosts that you want to install the Folding-at-Home viewer on, here:
 #coffee ansible_connection=local  ansible_python_interpreter=/usr/bin/python3
 [clients:vars]
-fahclient_ver= 7.6.10
+fahclient_ver= 7.6.21
 
 [controllers:vars]
-fahcontrol_ver= 7.6.10
+fahcontrol_ver= 7.6.21
 
 [viewers:vars]
-fahviewer_ver= 7.6.10
+fahviewer_ver= 7.6.21
 
 [all:vars]
-chost='IP of Control Node'
-cpass='control-node-password'
+chost='(IP of Control Node)'
+cpass='(control-node-password)'
 username='(Yourname @ folding@home)'
-passkey='(redacted passkey from folding@home'
+team=''
+passkey='(redacted passkey from folding@home)'
 power=full
 gpu=false
 smp=true
@@ -45,4 +46,3 @@ ansible_connection=ssh
 ansible_become=yes
 ansible_become_method=sudo
 ansible_become_user=root
-
