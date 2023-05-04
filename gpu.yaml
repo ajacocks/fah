@@ -45,4 +45,3 @@
   when:
     (gpu | bool) and
     (gpu_type == 'radeon')
-
