@@ -18,10 +18,14 @@ fah_control_pkgs:
     '7.6.8': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.8-1_all.deb'
     '7.6.9': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.9-1_all.deb'
     '7.6.10': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.10-1_all.deb'
+    '7.6.11': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.11-1_all.deb'
+    '7.6.12': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.12-1_all.deb'
+    '7.6.13': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.13-1_all.deb'
+    '7.6.21': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.21-1_all.deb'
     'latestbeta': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/latest_all.deb'
     'latestpublic': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/latest_all.deb'
 
-  Ubuntu: 
+  Ubuntu:
     '7.5.0': '{{ url }}/{{ public }}/debian-stable-64bit/v7.5/{{ product }}_7.5.0-1_all.deb'
     '7.5.1': '{{ url }}/{{ public }}/debian-stable-64bit/v7.5/{{ product }}_7.5.1-1_all.deb'
     '7.6.0': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.0-1_all.deb'
@@ -35,6 +39,10 @@ fah_control_pkgs:
     '7.6.8': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.8-1_all.deb'
     '7.6.9': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.9-1_all.deb'
     '7.6.10': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.10-1_all.deb'
+    '7.6.11': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.11-1_all.deb'
+    '7.6.12': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.12-1_all.deb'
+    '7.6.13': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.13-1_all.deb'
+    '7.6.21': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/{{ product }}_7.6.21-1_all.deb'
     'latestbeta': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/latest_all.deb'
     'latestpublic': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/latest_all.deb'
 
@@ -83,6 +91,7 @@ fah_control_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.noarch.rpm'
     '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.noarch.rpm'
     '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.noarch.rpm'
+    '7.6.21': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.21-1.noarch.rpm'
     'latestpublic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
     'latestbeta':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
 
@@ -107,6 +116,7 @@ fah_control_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.noarch.rpm'
     '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.noarch.rpm'
     '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.noarch.rpm'
+    '7.6.21': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.21-1.noarch.rpm'
     'latestpublic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
     'latestbeta':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
 
@@ -131,6 +141,6 @@ fah_control_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.noarch.rpm'
     '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.noarch.rpm'
     '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.noarch.rpm'
+    '7.6.21': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.21-1.noarch.rpm'
     'latestpublic': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
     'latestbeta':  '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.noarch.rpm'
-
