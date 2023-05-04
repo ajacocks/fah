@@ -10,7 +10,7 @@
         update_cache: true
       when:
         (ansible_distribution == 'Debian') or
-        (ansible_distribution == 'Ubuntu')
+        (ansible_distribution == 'Ubuntu' and ansible_distribution_release != 'jammy')
 
     - name: Populate service facts
       service_facts:
@@ -23,7 +23,7 @@
 
     - name: Include GPU tasks if enabled
       include_tasks: gpu.yaml
-#      static: no
+      # static: no
       when: (gpu | bool)
 
     - import_role:
