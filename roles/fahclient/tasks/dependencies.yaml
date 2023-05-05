@@ -76,7 +76,7 @@
 
 - name: install FaH packages (DEB)
   apt:
-    deb: "/tmp/{{ item | regex_replace( '.*fah', 'fah' ) }}"
+    deb: "/tmp/fahclient_{{ item | regex_replace( '.*fah', 'fah' )_amd64.deb }}"
   with_items: "{{ fah_client_pkgs[ ansible_distribution ] }}"
   when:
     ('fahclient' not in ansible_facts.packages) and
