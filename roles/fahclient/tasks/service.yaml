@@ -11,6 +11,7 @@
   wait_for:
     path: /var/run/fahclient.pid
     state: absent
+  failed_when: false
 
 - name: Check to see if the init script exists
   stat:
