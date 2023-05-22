@@ -13,6 +13,11 @@
     state: absent
   failed_when: false
 
+- name: Clean up pid file if timeout
+  file:
+    path: /var/run/fahclient.pid
+    state: absent
+
 - name: Check to see if the init script exists
   stat:
     path: /etc/init.d/FAHClient
