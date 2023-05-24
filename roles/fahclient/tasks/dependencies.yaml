@@ -54,7 +54,7 @@
     (ansible_distribution_major_version == '2')
 
 # TODO: This doesn't seem to actually generate anything
-- name: Gather pchackage facts
+- name: Gather package facts
   package_facts:
     manager: auto
 
