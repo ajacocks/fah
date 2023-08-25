@@ -27,4 +27,3 @@
   when:
     ('fahviewer' not in ansible_facts.packages) and
     (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
-

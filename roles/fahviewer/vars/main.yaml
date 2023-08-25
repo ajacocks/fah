@@ -28,7 +28,8 @@ fah_viewer_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.11_amd64.deb'
     '7.6.12': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.12_amd64.deb'
     '7.6.13': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.13_amd64.deb'
-    'latestbeta':   '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/latest.deb'
+    '7.6.21': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.21_amd64.deb'
+    'latestbeta': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/latest.deb'
     'latestpublic': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/latest.deb'
 
   Ubuntu:
@@ -52,9 +53,9 @@ fah_viewer_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.11_amd64.deb'
     '7.6.12': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.12_amd64.deb'
     '7.6.13': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.13_amd64.deb'
-    'latestbeta':   '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/latest.deb'
+    '7.6.21': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/{{ product }}_7.6.21_amd64.deb'
+    'latestbeta': '{{ url }}/{{ public }}/debian-stable-64bit/v7.6/latest.deb'
     'latestpublic': '{{ url }}/{{ beta }}/debian-stable-64bit/v7.6/latest.deb'
-
 
   Fedora:
     '7.4.15': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.5/{{ product }}-7.4.15-1.x86_64.rpm'
@@ -77,11 +78,9 @@ fah_viewer_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.x86_64.rpm'
     '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.x86_64.rpm'
     '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.x86_64.rpm'
+    '7.6.21': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.21-1.x86_64.rpm'
     'latestbeta': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
     'latestpublic': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
-
-
-
 
   RedHat:
     '7.4.15': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.5/{{ product }}-7.4.15-1.x86_64.rpm'
@@ -104,9 +103,9 @@ fah_viewer_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.x86_64.rpm'
     '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.x86_64.rpm'
     '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.x86_64.rpm'
+    '7.6.21': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.21-1.x86_64.rpm'
     'latestbeta': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
     'latestpublic': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
-
 
   CentOS:
     '7.4.15': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.5/{{ product }}-7.4.15-1.x86_64.rpm'
@@ -129,6 +128,7 @@ fah_viewer_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.x86_64.rpm'
     '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.x86_64.rpm'
     '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.x86_64.rpm'
+    '7.6.21': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.21-1.x86_64.rpm'
     'latestbeta': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
     'latestpublic': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
 
@@ -153,6 +153,6 @@ fah_viewer_pkgs:
     '7.6.11': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.11-1.x86_64.rpm'
     '7.6.12': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.12-1.x86_64.rpm'
     '7.6.13': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.13-1.x86_64.rpm'
+    '7.6.21': '{{ url }}/{{ public }}/centos-6.7-64bit/v7.6/{{ product }}-7.6.21-1.x86_64.rpm'
     'latestbeta': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
     'latestpublic': '{{ url }}/{{ beta }}/centos-6.7-64bit/v7.6/latest.rpm'
-

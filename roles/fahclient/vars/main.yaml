@@ -1,5 +1,5 @@
 ---
- 
+
 fah_client_pkgs:
   Debian:
     '7.4.16': 'https://download.foldingathome.org/releases/beta/release/fahclient/debian-stable-64bit/v7.4/fahclient_7.4.16_amd64.deb'
@@ -21,9 +21,9 @@ fah_client_pkgs:
     '7.6.11': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.11_amd64.deb'
     '7.6.12': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.12_amd64.deb'
     '7.6.13': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.13_amd64.deb'
+    '7.6.21': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.21_amd64.deb'
     'latestbeta': 'https://download.foldingathome.org/releases/beta/release/fahclient/debian-stable-64bit/v7.6/latest.deb'
     'latestpublic': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/latest.deb'
-
 
   Ubuntu:
     '7.4.16': 'https://download.foldingathome.org/releases/beta/release/fahclient/debian-stable-64bit/v7.4/fahclient_7.4.16_amd64.deb'
@@ -45,6 +45,7 @@ fah_client_pkgs:
     '7.6.11': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.11_amd64.deb'
     '7.6.12': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.12_amd64.deb'
     '7.6.13': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.13_amd64.deb'
+    '7.6.21': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/fahclient_7.6.21_amd64.deb'
     'latestbeta': 'https://download.foldingathome.org/releases/beta/release/fahclient/debian-stable-64bit/v7.6/latest.deb'
     'latestpublic': 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/latest.deb'
 
@@ -68,6 +69,7 @@ fah_client_pkgs:
     '7.6.11': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.11-1.x86_64.rpm'
     '7.6.12': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.12-1.x86_64.rpm'
     '7.6.13': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.13-1.x86_64.rpm'
+    '7.6.21': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.21-1.x86_64.rpm'
     'latestbeta': 'https://download.foldingathome.org/releases/beta/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
     'latestprod': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
 
@@ -91,6 +93,7 @@ fah_client_pkgs:
     '7.6.11': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.11-1.x86_64.rpm'
     '7.6.12': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.12-1.x86_64.rpm'
     '7.6.13': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.13-1.x86_64.rpm'
+    '7.6.21': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.21-1.x86_64.rpm'
     'latestbeta': 'https://download.foldingathome.org/releases/beta/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
     'latestprod': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
 
@@ -114,6 +117,7 @@ fah_client_pkgs:
     '7.6.11': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.11-1.x86_64.rpm'
     '7.6.12': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.12-1.x86_64.rpm'
     '7.6.13': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.13-1.x86_64.rpm'
+    '7.6.21': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.21-1.x86_64.rpm'
     'latestbeta': 'https://download.foldingathome.org/releases/beta/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
     'latestprod': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
 
@@ -137,6 +141,6 @@ fah_client_pkgs:
     '7.6.11': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.11-1.x86_64.rpm'
     '7.6.12': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.12-1.x86_64.rpm'
     '7.6.13': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.13-1.x86_64.rpm'
+    '7.6.21': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient-7.6.21-1.x86_64.rpm'
     'latestbeta': 'https://download.foldingathome.org/releases/beta/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
     'latestprod': 'https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/latest.rpm'
-

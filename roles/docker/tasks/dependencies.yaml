@@ -37,13 +37,13 @@
     state: present
 
 # Docker Compose is not needed but can be added
-#- name: Download and install docker-compose
-#  get_url:
-#    url: https://github.com/docker/compose/releases/download/{{ docker_compose }}/docker-compose-Linux-x86_64
-#    dest: /usr/local/bin/docker-compose
-#    owner: root
-#    group: root
-#    mode: 0755
+# - name: Download and install docker-compose
+#   get_url:
+#     url: https://github.com/docker/compose/releases/download/{{ docker_compose }}/docker-compose-Linux-x86_64
+#     dest: /usr/local/bin/docker-compose
+#     owner: root
+#     group: root
+#     mode: 0755
 
 # Set ip forwarding on in /proc and in the sysctl file and reload if necessary
 - sysctl:

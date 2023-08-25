@@ -26,8 +26,8 @@
     state: present
   when: "ansible_distribution == 'RedHat'"
 
-#- name: install OpenCL drivers
-#  package:
-#    name: opencl
-#    state: present
-#  when: "ansible_distribution == 'RedHat'"
+# - name: install OpenCL drivers
+#   package:
+#     name: opencl
+#     state: present
+#   when: "ansible_distribution == 'RedHat'"
